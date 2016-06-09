@@ -1,0 +1,8 @@
+---
+- name: Install software
+  hosts: all 
+  connection: winrm
+  gather_facts: False
+  roles:
+    - { role: python}
+    - { role: iis}
