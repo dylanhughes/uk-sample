@@ -1,0 +1,18 @@
+---
+- name: Install MS SQL
+  hosts: wuk
+  gather_facts: false
+  vars:
+    srvr_id: uc1wftcuktest01
+    db_pswd: 
+    db_version: SOFT-MSSQLSTD2012-CPU
+    db_mode: ASM
+    db_name: TSTDB
+    db_collation: SQL_Latin1_General_CP1_CI_AS
+    db_features: SQLEngine
+  tasks:
+    - name: Install SQL
+      clc_blueprint_package:
+        server_ids: "{{ srvr_id }}"
+        package_id: 7286d4ea-1c83-11e2-b279-e02d6288709b
+        package_params: {'T3.sql.SAPassword':'{{db_pswd}}', 'ProductCode':'{{db_version}}', 'T3.sql.Features':'{{db_features}}', 'T3.sql.ASMode':'{{db_mode}}', 'T3.sql.Instance':'{{db_name}}', 'T3.sql.SQLCOLLATION':'{{db_collation}}'}

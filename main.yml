@@ -1,0 +1,15 @@
+---
+- name: Create infrastructure
+  hosts: all
+  gather_facts: False
+  connection: local
+  roles:
+    - { role: winsvr, tags:['infra']}
+
+- name: Install software
+  hosts: all 
+  connection: winrm
+  gather_facts: False
+  roles:
+    - { role: python, tags:['config']}
+    - { role: iis, tags:['iis']}

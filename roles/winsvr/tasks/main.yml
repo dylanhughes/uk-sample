@@ -1,0 +1,36 @@
+- name: create a group
+  clc_group:
+    name: 'ukgrp'
+    state: present
+
+- name: generate password
+  command: openssl rand -base64 15
+  register: srvr_pswd
+  changed_when: False
+
+- name: Create Server
+  clc_server:
+    name: uktest
+    description: 'UK Test Server'
+    template: WIN2012R2DTC-64
+    group: 'ukgrp'
+    count: 1
+    cpu: 2
+    memory: 4
+    additional_disks:
+      - {path: e, sizeGB: 100, type: partitioned}
+    packages:
+      - { packageId: '98d7cb38-41ae-41de-b3e4-9967be006f6c', parameters: {} }
+  register: clc_srvr
+
+- debug: var=clc_srvr
+
+- add_host:
+    name: "{{ clc_srvr.servers[0].name }}"
+    groups: ctx_inv
+    ansible_password: "{{ srvr_pswd }}"
+    ansible_host: "{{clc_srvr.servers[0].ipaddress}}"
+    ansible_user: "administrator"
+    ansible_connection: winrm
+    ansible_winrm_server_cert_validation: ignore
+    ansible_host_key_checking: False

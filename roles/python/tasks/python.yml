@@ -1,0 +1,12 @@
+---
+- name: install python
+  hosts: wuk
+  gather_facts: true
+  tasks:
+    - name: install python
+      win_msi:
+        path: https://www.python.org/ftp/python/2.7.11/python-2.7.11.amd64.msi
+        state: present
+        wait: True
+      register: wininst
+    - debug: var=wininst

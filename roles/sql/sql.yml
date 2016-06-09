@@ -1,0 +1,11 @@
+---
+- name: install sql package
+  hosts: wuk
+  gather_facts: True
+  tasks:
+    - name: install sql
+      win_package:
+        name: "MS SQL Express"
+        path: "http://download.microsoft.com/download/E/A/E/EAE6F7FC-767A-4038-A954-49B8B05D04EB/ExpressAndTools%2064BIT/SQLEXPRWT_x64_ENU.exe"
+        productid: "{EAE6F7FC-767A-4038-A954-49B8B05D04EB}"
+        state: present

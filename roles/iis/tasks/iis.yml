@@ -1,0 +1,12 @@
+---
+- name: install IIS
+  hosts: wuk 
+  gather_facts: true
+  tasks:
+    - name: Install IIS
+      win_feature:
+        name: "Web-Server"
+        state: present
+        restart: yes
+        include_sub_features: yes
+        include_management_tools: yes

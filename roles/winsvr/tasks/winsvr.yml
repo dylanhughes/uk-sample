@@ -1,0 +1,20 @@
+---
+- name: Playbook to create a windows server
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Create Server
+      clc_server:
+        name: uktest
+        description: 'UK Test Server'
+        template: WIN2012R2DTC-64
+        group: 'Default Group'
+        count: 1
+        cpu: 2
+        memory: 4
+        additional_disks:
+          - {path: e, sizeGB: 100, type: partitioned}
+        packages:
+          - { packageId: '98d7cb38-41ae-41de-b3e4-9967be006f6c', parameters: {} }
+      register: clc_svr
+    - debug: var=clc_svr
