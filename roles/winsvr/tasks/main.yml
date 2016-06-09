@@ -1,8 +1,8 @@
-- name: create a group
-  clc_group:
-    name: 'ukgrp'
-    state: present
-
+#- name: create a group
+#  clc_group:
+#    name: 'ukgrp'
+#    state: present
+#
 - name: generate password
   command: openssl rand -base64 15
   register: srvr_pswd
