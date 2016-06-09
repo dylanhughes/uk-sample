@@ -5,7 +5,8 @@
   connection: local
   roles:
     - role: winsvr
-      tags: infra'
+      tags: 
+        - infra
 
 - name: Install software
   hosts: all 
@@ -13,6 +14,8 @@
   gather_facts: False
   roles:
     - role: python
-      tags: config
+      tags: 
+        - config
     - role: iis 
-      tags: iis
+      tags: 
+        - iis
