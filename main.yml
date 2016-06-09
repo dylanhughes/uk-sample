@@ -11,7 +11,5 @@
   connection: winrm
   gather_facts: False
   roles:
-    - { role: python }
-    - { role: iis }
-  #  - { role: python, tags:['config']}
-  #  - { role: iis, tags:['iis']}
+    - { role: python, tags:['config']}
+    - { role: iis, tags:['iis']}
