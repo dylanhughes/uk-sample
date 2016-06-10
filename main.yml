@@ -9,7 +9,7 @@
         - infra
 
 - name: Install software
-  hosts: ctx_inv:ukgrp
+  hosts: all
   connection: winrm
   gather_facts: False
   roles:
