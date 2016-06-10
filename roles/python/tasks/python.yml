@@ -1,6 +1,6 @@
 ---
 - name: install python
-  hosts: wuk
+  hosts: all
   gather_facts: true
   tasks:
     - name: install python
