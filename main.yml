@@ -1,12 +1,4 @@
 ---
-- name: Create infrastructure
-  hosts: all
-  gather_facts: False
-  connection: local
-  roles:
-    - role: winsvr
-      tags: 
-        - infra
 
 - name: Install software
   hosts: all
