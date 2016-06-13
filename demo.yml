@@ -1,0 +1,26 @@
+---
+
+ - name: Create Demo Network
+   hosts: localhost
+   gather_facts: False
+   connection: local
+   tasks:
+     - name: Create a demo Network
+       clc_network:
+         location: 'GB3'
+         state: present
+         name: 'Demo VLAN'
+         description: 'Demo VLAN'
+       register: net
+ - name: Create Groups
+   hosts: localhost
+   gather_facts: False
+   connection: local
+   tasks:
+     - name: Create Demo Server Group
+       clc_group:
+         name: 'Demo Servers'
+         parent: 'GB3 Hardware'
+         location: GB3
+         state: present
+       register: clc
