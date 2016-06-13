@@ -1,7 +1,7 @@
 ---
 
 - name: Install software
-  hosts: all
+  hosts: 10.105.40.18
   connection: winrm
   gather_facts: True
   roles:
