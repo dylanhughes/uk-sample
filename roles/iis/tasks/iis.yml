@@ -1,6 +1,6 @@
 ---
 - name: install IIS
-  hosts: wuk 
+  hosts: all 
   gather_facts: true
   tasks:
     - name: Install IIS
