@@ -5,9 +5,6 @@
   connection: winrm
   gather_facts: True
   roles:
-    - role: python
-      tags: 
-        - config
     - role: iis 
       tags: 
         - iis
