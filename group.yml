@@ -9,4 +9,4 @@
            parent: 'GB3 Hardware'
            location: GB3
            state: present
-    register: clc
+     register: clc
