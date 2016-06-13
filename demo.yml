@@ -70,8 +70,8 @@
    gather_facts: true
    connection: local
    tasks:
- - name: Deploy Web Servers
-      clc_server:
+   - name: Deploy Web Servers
+     clc_server:
        cpu: 1
        memory: 4
        description: 'Web Demo Server'
