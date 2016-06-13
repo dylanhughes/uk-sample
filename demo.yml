@@ -24,7 +24,7 @@
          location: GB3
          state: present
        register: clc
- - name: Build Servers
+ - name: Build Base Server
    hosts: localhost
    serial: 1
    gather_facts: true
@@ -39,6 +39,46 @@
        group: 'Demo Servers'
        managed_os: false
        name: BASE
+       network_id: 'Demo VLAN'
+       type: standard
+       template: rhel-7-64
+       count: 1
+     register: clc
+ - name: Build MySQL Server
+   hosts: localhost
+   serial: 1
+   gather_facts: true
+   connection: local
+   tasks:
+   - name: Deploy MySQL Servers
+     clc_server:
+       cpu: 1
+       memory: 4
+       description: 'MySQL Demo Server'
+       location: GB3
+       group: 'Demo Servers'
+       managed_os: false
+       name: SQL
+       network_id: 'Demo VLAN'
+       type: standard
+       template: rhel-7-64
+       count: 1
+     register: clc
+     - name: Build Base Server
+   hosts: localhost
+   serial: 1
+   gather_facts: true
+   connection: local
+   tasks:
+ - name: Deploy Web Servers
+     clc_server:
+       cpu: 1
+       memory: 4
+       description: 'Web Demo Server'
+       location: GB3
+       group: 'Demo Servers'
+       managed_os: false
+       name: WEB
        network_id: 'Demo VLAN'
        type: standard
        template: rhel-7-64
