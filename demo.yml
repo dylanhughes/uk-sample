@@ -71,7 +71,7 @@
    connection: local
    tasks:
  - name: Deploy Web Servers
-     clc_server:
+      clc_server:
        cpu: 1
        memory: 4
        description: 'Web Demo Server'
