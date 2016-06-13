@@ -64,7 +64,7 @@
        template: rhel-7-64
        count: 1
      register: clc
-     - name: Build Base Server
+ - name: Build Base Server
    hosts: localhost
    serial: 1
    gather_facts: true
