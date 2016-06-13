@@ -41,7 +41,6 @@
        name: BASE
        network_id: 'Demo VLAN'
        type: standard
-       storage_type: standard
        template: redHat7_64Bit
        count: 1
      register: clc
