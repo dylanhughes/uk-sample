@@ -41,6 +41,6 @@
        name: BASE
        network_id: 'Demo VLAN'
        type: standard
-       template: RedHat Enterprise Linux 7 64-bit
+       template: rhel-7-64
        count: 1
      register: clc
