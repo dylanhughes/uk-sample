@@ -3,7 +3,7 @@
 - name: Install software
   hosts: all
   connection: winrm
-  gather_facts: False
+  gather_facts: True
   roles:
     - role: python
       tags: 
