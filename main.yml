@@ -1,7 +1,7 @@
 ---
 
 - name: Install software
-  hosts: gb3cctsfile01.dylan.org
+  hosts: all
   connection: winrm
   gather_facts: True
   roles:
