@@ -1,0 +1,12 @@
+- name: Create Groups
+  hosts: localhost
+  gather_facts: False
+  connection: local
+  tasks:
+    - name: Create a new Demo Runner Group
+      clc_group:
+           name: 'Runner Demo Servers'
+           parent: 'GB3 Hardware'
+           location: GB3
+           state: present
+    register: clc
