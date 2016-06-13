@@ -2,7 +2,7 @@
 
 - name: Install software
   hosts: all
-  connection: winrm
+  connection: local
   gather_facts: True
   roles:
     - role: iis 
