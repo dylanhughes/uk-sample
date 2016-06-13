@@ -63,8 +63,9 @@
        type: standard
        template: rhel-7-64
        count: 1
+       wait: yes
      register: clc
- - name: Build Base Server
+ - name: Build Apache Server
    hosts: localhost
    serial: 1
    gather_facts: true
@@ -82,5 +83,7 @@
        network_id: 'Demo VLAN'
        type: standard
        template: rhel-7-64
+       add_public_ip: true
        count: 1
+       wait: yes
      register: clc
