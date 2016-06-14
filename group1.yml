@@ -20,4 +20,23 @@
          location: GB3
          state: present
        register: clc
+ - name: Build Web Servers
+   hosts: localhost
+   serial: 1
+   gather_facts: false
+   connection: local
+   tasks:
+   - name: Deploy Web Servers
+     clc_server:
+       cpu: 1
+       memory: 4
+       description: 'Demo Web Server'
+       location: GB3
+       group: 'Demo Servers'
+       managed_os: false
+       name: WEB
+       network_id: 'Demo VLAN'
+       template: rhel-7-64
+       count: 1
+     register: clc
  
