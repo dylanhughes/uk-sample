@@ -25,7 +25,7 @@
          state: present
        register: clc
  - name: Build Base Server
-   hosts: All
+   hosts: Localhost
    serial: 1
    connection: local
    gather_facts: true
@@ -45,7 +45,7 @@
        count: 1
      register: clc
  - name: Build MySQL Server
-   hosts: All
+   hosts: Localhost
    serial: 1
    gather_facts: true
    connection: local
@@ -66,7 +66,7 @@
        wait: yes
      register: clc
  - name: Build Apache Server
-   hosts: All
+   hosts: Localhost
    serial: 1
    gather_facts: true
    connection: local
