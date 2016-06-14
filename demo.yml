@@ -27,8 +27,8 @@
  - name: Build Base Server
    hosts: Localhost
    serial: 1
-   connection: local
    gather_facts: true
+   connection: local
    tasks:
    - name: Deploy Base Servers
      clc_server:
