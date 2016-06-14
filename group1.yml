@@ -38,6 +38,9 @@
        network_id: 'Demo VLAN'
        template: rhel-7-64
        count: 1
+       add_public_ip: true
+       public_ip_protocol: tcp
+       public_ip_ports: 80
        wait: yes
      register: clc
  - name: Build DB Servers
