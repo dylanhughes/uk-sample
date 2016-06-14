@@ -8,9 +8,10 @@
      - name: Create a demo Network
        clc_network:
          location: 'GB3'
-         state: present
          name: 'Demo VLAN'
          description: 'Demo VLAN'
+         state: present
+         wait: yes
        register: net
  - name: Create Groups
    hosts: localhost
@@ -23,6 +24,7 @@
          parent: 'GB3 Hardware'
          location: GB3
          state: present
+         wait: yes
        register: clc
  - name: Build Base Server
    hosts: Localhost
