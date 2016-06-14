@@ -1,19 +1,44 @@
-- name: Build File Server
-   hosts: localhost
+ ---
+ - name: Build MySQL Server
+   hosts: Localhost
    serial: 1
-   gather_facts: false
+   gather_facts: true
    connection: local
    tasks:
-   - name: Deploy File Servers
+   - name: Deploy MySQL Servers
      clc_server:
        cpu: 1
        memory: 4
-       description: 'Demo File Server'
+       description: 'MySQL Demo Server'
        location: GB3
        group: 'Demo Servers'
        managed_os: false
-       name: FILE
+       name: SQL
        network_id: 'Demo VLAN'
+       type: standard
        template: rhel-7-64
        count: 1
+       wait: yes
+     register: clc
+ - name: Build Apache Server
+   hosts: Localhost
+   serial: 1
+   gather_facts: true
+   connection: local
+   tasks:
+   - name: Deploy Web Servers
+     clc_server:
+       cpu: 1
+       memory: 4
+       description: 'Web Demo Server'
+       location: GB3
+       group: 'Demo Servers'
+       managed_os: false
+       name: WEB
+       network_id: 'Demo VLAN'
+       type: standard
+       template: rhel-7-64
+       add_public_ip: true
+       count: 1
+       wait: yes
      register: clc
