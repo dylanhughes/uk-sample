@@ -1,26 +1,5 @@
  ---
  
- - name: Build MySQL Server
-   hosts: Localhost
-   serial: 1
-   gather_facts: true
-   connection: local
-   tasks:
-   - name: Deploy MySQL Servers
-     clc_server:
-       cpu: 1
-       memory: 4
-       description: 'MySQL Demo Server'
-       location: GB3
-       group: 'Demo Servers'
-       managed_os: false
-       name: SQL
-       network_id: 'Demo VLAN'
-       type: standard
-       template: rhel-7-64
-       count: 1
-       wait: yes
-     register: clc
  - name: Build Apache Server
    hosts: Localhost
    serial: 1
