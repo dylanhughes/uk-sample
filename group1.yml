@@ -38,5 +38,46 @@
        network_id: 'Demo VLAN'
        template: rhel-7-64
        count: 1
+       wait: yes
+     register: clc
+ - name: Build DB Servers
+   hosts: localhost
+   serial: 1
+   gather_facts: false
+   connection: local
+   tasks:
+   - name: Deploy DB Servers
+     clc_server:
+       cpu: 1
+       memory: 4
+       description: 'Demo DB Server'
+       location: GB3
+       group: 'Demo Servers'
+       managed_os: false
+       name: DB
+       network_id: 'Demo VLAN'
+       template: rhel-7-64
+       count: 1
+       wait: yes
+     register: clc
+ - name: Build Base Servers
+   hosts: localhost
+   serial: 1
+   gather_facts: false
+   connection: local
+   tasks:
+   - name: Deploy Base Servers
+     clc_server:
+       cpu: 1
+       memory: 4
+       description: 'Demo Base Server'
+       location: GB3
+       group: 'Demo Servers'
+       managed_os: false
+       name: BASE
+       network_id: 'Demo VLAN'
+       template: rhel-7-64
+       count: 1
+       wait: yes
      register: clc
  
