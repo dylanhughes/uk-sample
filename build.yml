@@ -1,0 +1,20 @@
+- name: Build Base Server
+   hosts: Localhost
+   serial: 1
+   gather_facts: true
+   connection: local
+   tasks:
+   - name: Deploy Base Servers
+     clc_server:
+       cpu: 1
+       memory: 4
+       description: 'Demo Base Server'
+       location: GB3
+       group: 'Demo Servers'
+       managed_os: false
+       name: BASE
+       network_id: 'Demo VLAN'
+       type: standard
+       template: rhel-7-64
+       count: 1
+     register: clc
