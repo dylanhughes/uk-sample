@@ -32,7 +32,7 @@
    gather_facts: false
    connection: local
    tasks:
- - name: Deploy File Servers
+   - name: Deploy File Servers
      clc_server:
        cpu: 1
        memory: 4
