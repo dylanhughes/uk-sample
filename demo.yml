@@ -27,10 +27,10 @@
  - name: Build Base Server
    hosts: localhost
    serial: 1
-   gather_facts: true
    connection: local
    tasks:
    - name: Deploy Base Servers
+     gather_facts: true
      clc_server:
        cpu: 1
        memory: 4
