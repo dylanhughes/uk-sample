@@ -1,7 +1,7 @@
 ---
 
  - name: Create Demo Network
-   hosts: all
+   hosts: localhost
    gather_facts: False
    connection: local
    tasks:
@@ -14,7 +14,7 @@
          wait: yes
        register: net
  - name: Create Groups
-   hosts: all
+   hosts: localhost
    gather_facts: False
    connection: local
    tasks:
@@ -27,7 +27,7 @@
          wait: yes
        register: clc
  - name: Build File Server
-   hosts: all
+   hosts: localhost
    serial: 1
    gather_facts: false
    connection: local
