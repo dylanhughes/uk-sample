@@ -1,7 +1,7 @@
 ---
 
  - name:Network
-   hosts: localhost
+   hosts:localhost
    gather_facts: False
    connection: local
    tasks:
