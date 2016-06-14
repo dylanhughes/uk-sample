@@ -1,4 +1,5 @@
  ---
+ 
  - name: Build MySQL Server
    hosts: Localhost
    serial: 1
