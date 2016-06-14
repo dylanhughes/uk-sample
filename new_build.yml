@@ -1,0 +1,83 @@
+---
+
+ - name:Network
+   hosts: localhost
+   gather_facts: False
+   connection: local
+   tasks:
+     - name: Create demo Network
+       clc_network:
+         location: 'GB3'
+         state: present
+         name: 'Demo VLAN'
+         description: 'Demo VLAN'
+       register: net
+ - name: Create Groups
+   hosts: localhost
+   gather_facts: False
+   connection: local
+   tasks:
+     - name: Create Demo Server Group
+       clc_group:
+         name: 'Demo Servers'
+         parent: 'GB3 Hardware'
+         location: GB3
+         state: present
+       register: clc
+ - name: Build Web Servers
+   hosts: localhost
+   serial: 3
+   gather_facts: false
+   connection: local
+   tasks:
+   - name: Deploy Web Servers
+     clc_server:
+       cpu: 1
+       memory: 4
+       description: 'Demo Web Server'
+       location: GB3
+       group: 'Demo Servers'
+       managed_os: false
+       name: WEB
+       network_id: 'Demo VLAN'
+       template: rhel-7-64
+       count: 1
+     register: clc
+ - name: Build MYSQL Server
+   hosts: localhost
+   serial: 1
+   gather_facts: false
+   connection: local
+   tasks:
+   - name: Deploy MySQL Server
+     clc_server:
+       cpu: 2
+       memory: 8
+       description: 'MYSQL Server'
+       location: GB3
+       group: 'Demo Servers'
+       managed_os: false
+       name: MYSQL
+       network_id: 'Demo VLAN'
+       template: rhel-7-64
+       count: 1
+     register: clc
+ - name: Build File Server
+   hosts: localhost
+   serial: 1
+   gather_facts: false
+   connection: local
+   tasks:
+   - name: Deploy File Servers
+     clc_server:
+       cpu: 1
+       memory: 4
+       description: 'File Server'
+       location: GB3
+       group: 'Demo Servers'
+       managed_os: false
+       name: FILE
+       network_id: 'Demo VLAN'
+       template: rhel-7-64
+       count: 1
+     register: clc
