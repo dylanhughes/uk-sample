@@ -1,0 +1,14 @@
+---
+
+ - name: Create Demo Network
+   hosts: localhost
+   gather_facts: False
+   connection: local
+   tasks:
+     - name: Create a new demo Network
+       clc_network:
+         location: 'GB3'
+         state: absent
+         name: 'Demo VLAN'
+         description: 'Demo VLAN'
+       register: net
