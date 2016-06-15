@@ -13,7 +13,7 @@
          description: 'Demo VLAN'
        register: net
    tasks:
-     - name: Create Web Server Group
+     - name: Create Group
        clc_group:
          name: 'Demo Servers'
          parent: 'GB3 Hardware'
