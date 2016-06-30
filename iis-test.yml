@@ -1,6 +1,6 @@
 --- 
  - name: install IIS 
-   hosts: all  
+   hosts: GB3CCTSFILE01
    gather_facts: false
    tasks: 
      - name: Install IIS 
