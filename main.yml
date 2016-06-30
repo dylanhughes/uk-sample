@@ -1,10 +1,17 @@
 ---
-
-- name: Create network
+- name: Create infrastructure
   hosts: all
+  gather_facts: False
   connection: local
-  gather_facts: false
   roles:
-    - role: network 
-      tags: 
-        - network
+    - role: infra
+      tags:
+        - clc
+
+- name: Install IIS
+  hosts: win_servers
+  gather_facts: True
+  roles:
+    - role: IIS
+      tags:
+        - win_web
