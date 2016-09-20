@@ -17,7 +17,7 @@
        name: MSTEST
        network_id: 'vlan_2040_10.105.40'
        type: standard
-       template: rhel-7-64
+       template: WIN2012R2DTC-64
        add_public_ip: false
        count: 10
        wait: yes
