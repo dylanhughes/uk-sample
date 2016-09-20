@@ -1,6 +1,6 @@
  ---
  
- - name: Build Apache Server
+ - name: Build windows Server
    hosts: Localhost
    serial: 1
    gather_facts: true
@@ -10,15 +10,15 @@
      clc_server:
        cpu: 1
        memory: 4
-       description: 'Web Demo Server'
+       description: 'Runner power up and down test'
        location: GB3
-       group: 'Demo Servers'
+       group: 'Test power on group'
        managed_os: false
-       name: WEB
-       network_id: 'Demo VLAN'
+       name: MSTEST
+       network_id: 'vlan_2040_10.105.40'
        type: standard
        template: rhel-7-64
-       add_public_ip: true
-       count: 1
+       add_public_ip: false
+       count: 10
        wait: yes
      register: clc
