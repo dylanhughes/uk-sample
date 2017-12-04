@@ -62,22 +62,3 @@
        template: rhel-7-64
        count: 1
      register: clc
- - name: Build File Server
-   hosts: localhost
-   serial: 1
-   gather_facts: false
-   connection: local
-   tasks:
-   - name: Deploy File Servers
-     clc_server:
-       cpu: 1
-       memory: 4
-       description: 'File Server'
-       location: GB3
-       group: 'Demo Servers'
-       managed_os: false
-       name: FILE
-       network_id: 'Demo VLAN'
-       template: rhel-7-64
-       count: 1
-     register: clc
