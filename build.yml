@@ -9,15 +9,15 @@
    - name: Deploy Web Servers
      clc_server:
        cpu: 1
-       memory: 4
-       description: 'Runner power up and down test'
+       memory: 1
+       description: 'Centos Server built via Runner'
        location: GB3
-       group: 'Test power on group'
+       group: 'Automation'
        managed_os: false
-       name: MSTEST
-       network_id: 'vlan_2040_10.105.40'
+       name: WEB
+       network_id: '7292dce1e6794b7682937824d2ce60d2'
        type: standard
-       template: WIN2012R2DTC-64
+       template: CentOS-6-64-TEMPLATE
        add_public_ip: false
        count: 10
        wait: yes
